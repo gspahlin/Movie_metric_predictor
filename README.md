@@ -1,5 +1,5 @@
 # Movie_score_predictor
-Can an averge IMDb user score be predicted by basic data? 
+Can an averge IMDb user score be predicted by basic data using machine learning? 
 
 The goal of this project is to be able to predict the success of a movie using data that would be easily obtainable prior to its release. The idea for this project
 is similar to the movie analysis I did as a group project during the MSU Data Analytics Bootcamp. In this case I am using machine learning to help me make predictions,
