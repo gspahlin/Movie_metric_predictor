@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+
+        <!-- Bring in our bootstrap stylesheet -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous">
+        
+        <title>Machine Learning Project Page</title>
+
+        <style> p {
+            margin: 20px;
+        }              
+        </style>
+    </head>
+    <body>
+        <div class = "jumbotron text-center">
+            <h1>Predicting User Approval of and Engagement with Movies on IMDb With Machine Learning</h1>
+        </div>
+        <div class = "row">
+            <div class = 'col-lg-12'>
+            <h3 class = 'text-center'>Background</h3>
+            <p>
+                This project started out as a group project in my bootcamp. The goal was to understand what factors drive user approval and engagement. 
+                The original dataset used was the IMDb Extensive Dataset published on <a href = https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset >Kaggle</a>. This 
+                dataset is an especially powerful tool for understanding movies, as it contains 85,855 movies, spanning the entire history of movie making. 
+                In order to make a dataset useable for this purpose we manipulated and cleaned the data, deriving a single .csv. The main metric we used for user approval
+                was mean user score, and the main metric for user engagement was total votes. A couple of our findings will be helpful to understand as a starting point for the
+                present work. The first finding is that there are fewer early movies that get low scores, than there are later movies that get low scores. Second, we found that 
+                in movies with only one genre designation, the average user approval for a movie is significantly different based on what that genre is. Finally, we found that 
+                the median number of votes a movie in IMDb will get is low (my estimate in the present work is 484 votes) but that a substantial population of outliers exist, 
+                which generate significantly more engegement - from thousands to millions of votes. 
+                <br><br>
+                Acknowledgements to: Amee Yang, James Bryant II, and Rebecca Lubera, my group members for this group project                
+                <br><br>            
+            </p>
+            <div class = 'text-center'>
+            <img src = "Metrics_over_time.png">
+            <p>Figures showing the distribution of average vote, and total votes through time.</p>
+            </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = 'col-lg-12'>
+            <h3 class = 'text-center'>But Can These Data Help Us Predict Engagement or Approval?</h3>
+            <p>
+            The initial analysis on the IMDb dataset was interesting, but falls somewhat short of the original goal - the idea was to identify the factors that
+            lead to user approval and engagement. In order to fullfill the original goal of the project, I decided to pick up where my group and I left off, and 
+            further transform and analyze the data from the IMDb extensive dataset. My new goal was to attempt to use some of the data in the data set to engineer features
+            which could be used to model the data using machine learning algorythms.  
+            </p>
+            <br><br>
+            <h3 class = 'text-center'>Reexploration and Feature Engineering</h3>
+            <p>
+            The main issue that I saw initially with respect to the implementation of a machine learning model, was the fact that a lot of the data in this set is categorical.
+            There were three categories that interested me for this part of the project - genre, language and country. All of these columns could consist of one or several string
+            values. For example, a genre entry in this data set may contain 1 - 3 genre values, out of a set of 23 unique genre values. This kind of data is not ready for an ML model
+            and needs to be dummy encoded in some way. I used the genre column to engineer 24 features for my analysis - one for each genre, plus a feature called genre complexity.
+            Genre complexity is a count of the number of genre designations a movie has in it's genre column. To code this I used a for loop to loop through the genre column,
+            split each entry into a list and then append the length of a list to an empty list for genre complexity. The genre features were processed similarly. In this case, 
+            I looped through a list of genres and for each, I looped through the genre column. I again split each value into a list, and then used an if statement to look for 
+            whatever value of genre the first loop was on. In each case a zero was added to my list for each genre, but if the loop found the genre while looking for it, this 
+            would be changed to a 1. This way every movie in the set has a vector of length 23 for its genre classification, and a 1 in any position of the genre vector indicates
+            that a particular genre is present.  
+            </p>
+            <br><br>
+            <div class = 'text-center'>
+            <img src = "genre_encoding.png">
+            <p>Example of a loop used for feature encoding. This is the code used to accomplish the tasks mentioned above</p>
+            </div>
+            <br><br>
+            <p>
+            I decided not to do a full encoding of country and language fields, due to the large number of values these can take. Instead, I tried to anticipate countries and 
+            languages that would be strongly represented within the data, and specifically encoded these into binary features. For example I have a feature to cover whether 
+            English is present in my model, but I did not do this for every language. I used a list of the 
+            <a href = https://www.the-numbers.com/movies/production-countries/#tab=territory>top countries for movie production</a>, to aid in my decision making. 
+            </p>
+            <br>
+            <p>
+            In order to decide which of these features I should use, I made a lot of box plots to see if the medians were different for the films with a particular country or
+            language, versus the ones without. 
+            </p>
+            <br><br>
+            <div class = 'text-center'>
+                <img src = "box_example.png">
+            </div>
+
+            </div>
+            </div>
+        </div>
+        <br><br>
+        <div class = "row">
+            <div class = 'col-lg-12'>
+            <h3 class = 'text-center'>Modeling The Data With ML Methods</h3>
+            <p>
+            The first step toward modeling the data with machine learning is to decide what kind of algorythm to apply to the data. I'm skeptical of regression models
+            for this problem, because it seems overly ambitious for what I'm trying to do. Instead I decided to view this as a classification problem. In order to apply 
+            a classification strategy I encoded two new columns (one in each of two datasets). The first, for average vote is called is_liked and has a value of 1 if the 
+            movie has an average score greater than 6. Six is a reasonable value to use, because it is pretty close to the mean value for average score. The analogous column 
+            for total votes, is is_outlier, which gets a value of 1 if the total number of votes the movie has is greater than 1.5*IQR + the median number of votes 
+            (i.e. roughly 2250 votes).  
+            </p>
+            <br>
+            <p>
+            I prioritiezed decision tree and random forest models, as these are relatively easily understood, and I know of ways to extract feature importances for them. Both 
+            of these models work by separating populations based on variables. A decision tree uses features to make splits in the data, starting with an inital split (the root node)
+            and then through successive layers of nodes, with the goal of purifying two output conditions in the end nodes. The method uses gini impurity as a metric for how good a split is - 
+            a gini of 0 would perfectly separate the conditions, where a split with a gini value of 0.5 is useless and separates the population such that half the members of the resultant nodes
+            are in one classification, and half are in the other. 
+            </p>
+            <div class = 'text-center'>
+            <img src =  >
+            <p></p>
+        </div>
+
+    </div>
+    </div>
+
+    </body>
