@@ -162,4 +162,43 @@
                 <p>Approval model separates low from high approval at rates better than chance.</p>
             </div>
         </div>
+        <br>
+        <div class = "row">
+            <div class = 'col-lg-12'>
+                <h3 class = 'text-center'>Discussion: Engagement</h3>
+                
+                <p>In my view the most interesting results came from the engagement model. The model was able to sort outliers from normal (e.g. very low) engagement 
+                    with around 80% accuracy, but the classification report supplies some nuances that show this is a somewhat misleading picture. In the report above,
+                    recall refers to the proportion of a classification identified by the algorythm, and precision tells us how often the algorythm made a correct 
+                    identification within a class. What we see is that the algorythm is very good at identifying normal engagement - it sorts 94% of those movies into the
+                    correct class. On the other hand it's sorting a significant number of the outliers into the normal class. This fact is most likely due to the fact that the
+                    dataset is imbalanced with respect to these two populations. The set contains many more ordinary movies than outliers (by definition). Its possible that the
+                    results could be improved by attempting to address this imbalance. 
+                
+                </p>
+                <div class = 'text-center'>
+                <img src = "figures/fi_engagement.png">
+                <p>
+                 The engagement model made use of relatively few of the features.    
+                </p>
+                </div>
+                <p>
+                   More discussion of the figure above to come... 
+                </p>
+                <h3 class = 'text-center'>Discussion: Approval</h3>
+                
+                <p> 
+                Discussion here
+                </p>
+                <div class = 'text-center'>
+                <img src = "figures/fi_approval.png">
+                <p>
+                 The approval model was a random forest, and slightly more complex.    
+                </p>
+                </div>
+                <p> 
+                    Discussion here
+                </p>
+            </div>
+           
     </body>
