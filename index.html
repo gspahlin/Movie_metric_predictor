@@ -183,12 +183,15 @@
                 </p>
                 </div>
                 <p>
-                   More discussion of the figure above to come... 
+                   The engagement model is relatively striking, because of it's simplicity. Looking above, we find that the year, duration, presence of english language, and 
+                   genre complexity dwarf the other freatures. It is somewhat surprising that genre categories are not very prominent in their use here.  
                 </p>
                 <h3 class = 'text-center'>Discussion: Approval</h3>
                 
                 <p> 
-                Discussion here
+               Approval is more straightforward to interpret because the dataset is not imbalanced with respect to approval. The threshold for the two categories was set at 6 because 
+               that value is close to the central tendancies revealed in the first figure for approval. The classification report shows that this model is equally precise for both classes
+               , but it tends to miss fewer of the cases where the film is approved of. At about 70% accuracy, this model is not without merit, but not highly predictive. 
                 </p>
                 <div class = 'text-center'>
                 <img src = "figures/fi_approval.png">
@@ -197,7 +200,10 @@
                 </p>
                 </div>
                 <p> 
-                    Discussion here
+                Our model for approval is somewhat more multifaceted than the one for engagement. It is much more surprising to me that the genre categories are marginal
+                in this model, as the medians for these genres often differ markedly. A possible reason for this may be that the number of movies in some of the genres is 
+                small relative to the overall dataset. Horror and Drama have very different median values for approval, and are relatively large genres, so it is not surprising
+                to find that they are the most used genres for splitting the tree. 
                 </p>
             </div>
            
