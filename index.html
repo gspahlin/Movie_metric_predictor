@@ -204,7 +204,7 @@
                 in this model, as the medians for these genres often differ markedly. A possible reason for this may be that the number of movies in some of the genres is 
                 small relative to the overall dataset. Horror and Drama have very different median values for approval, and are relatively large genres, so it is not surprising
                 to find that they are the most used genres for splitting the tree. The elephant in the room is the fact that year and duration are highly prominent in all models. 
-                In order to investigate this, an example tree is rendered below.
+                In order to investigate this, the optimized decision tree model for approval is rendered below.
                 </p>
 
                 <div class = 'text-center'>
@@ -213,5 +213,23 @@
                 Representative decision tree model with a depth of 8. Note the high gini values for the initial splits: this indicates these are low value.    
                 </p>
             </div>
-           
+            <p>
+                The tree above shows the condition for splitting highest in the box, with the operator meanining less than or equal to. By number year is the first feature and
+                duration is the second feature so X[0] is year and X[1] is duration. You can see that while this model still gets about 70% accuracy the first splits are not very good.
+                This can be seen from the high gini values in these splits. While it's possible to understand what the model is doing here, its hard to understand why these two features
+                would be so important. My hypothesis is that the main reason is that they are continuous variables and allow for a relatively even split, even if it isn't purifying the 
+                classes very much. 
+            </p>
+        
+            <h3 class = 'text-center'>Conclusions and Limitations</h3>
+                
+            <p> 
+          The most prudent conclusion I can derive from my work starts with acknowledging a limitation. The data that I am using to predict engagement and approval is relatively shallow and 
+          doesn't really describe the content in those movies. That is, in a sense, the most interesting thing to me about this project. It's not apparant to me that a model should be able to 
+          predict whether people will like or engage with a movie based on how long it is, whether it has English language, how many genres are present in it, and what genres are there. From 
+          that perspective, this work might point to some trends that movie makers could be cognizant of when making movies. The models I am using are not the most sophisticated in the ML feild,
+          however I think the small differences between decision tree and random forest, and the tendancy for the models to overfit the data at relatively modest tree depths point to diminsihing returns
+          for more complicated models. In order to make better models of approval and engagement in movies, I believe better data is necessary. This could involve natural language processing or 
+          financial data about the movies. 
+            </p>
     </body>
