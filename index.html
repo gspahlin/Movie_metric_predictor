@@ -38,7 +38,7 @@
                 <br><br>            
             </p>
             <div class = 'text-center'>
-            <img src = "Metrics_over_time.png">
+            <img src = "figures/Metrics_over_time.png">
             <p>Figures showing the distribution of average vote, and total votes through time.</p>
             </div>
             </div>
@@ -68,7 +68,7 @@
             </p>
             <br><br>
             <div class = 'text-center'>
-            <img src = "genre_encoding.png">
+            <img src = "figures/genre_encoding.png">
             <p>Example of a loop used for feature encoding. This is the code used to accomplish the tasks mentioned above</p>
             </div>
             <br><br>
@@ -85,8 +85,8 @@
             </p>
             <br><br>
             <div class = 'text-center'>
-                <img src = "box_example.png">
-                <p>Box plots were used to judge potential features. English containing movies are slightly less approved of than movies without English.</p>
+                <img src = "figures/box_example.png">
+                <p>Box plots were used to judge potential features. English language containing movies are slightly less approved of than movies without English.</p>
             </div>
 
             </div>
@@ -129,12 +129,37 @@
             </p>
             
             <div class = 'text-center'>
-            <img src = "tree_fit_1.png" >
+            <img src = "figures/tree_fit_1.png" >
             <p> Overly large decision trees overfit the training data badly.</p>
             
+            </div>
+            <br>
+            <h3 class = 'text-center'>Results: Approval and Engagement are Somewhat Predictable</h3>
+            <br>
+            <p>
+            The best results I was able to obtain for audience approval came from random forest models. The random forest model with a tree depth of 16 and the default
+            100 estimator trees gave an accuracy of 0.709 on the testing set. 
+            </p>
+            <br>
+            <p>
+            The best results I was able to obtain for audience engagement were better, and came from a simple decision tree model. The random forest models gave only modest
+            improvements in the audiece approval data, and also significantly complicated the model for audience engagement. The best decision tree for engagement had a tree depth of 8, and 
+            gave an accuracy of 0.808. More detailed results follow in the form of classification report tables. 
+            </p>
+
+
+            </div>
         </div>
-
-    </div>
-    </div>
-
+        <div class = "row">
+            <div class = 'col-md-6 text-center'>
+                <h5 class = 'text-center'>Classification Report: Engagement</h5>
+                <img src = "figures/cls_report_engagement.png">
+                <p>Engagement model reliably identifies normal engagement, but struggles with high (outlier) engagement.</p>
+            </div>
+            <div class = 'col-md-6 text-center'>
+                <h5 class = 'text-center'>Classification Report: Approval</h5>
+                <img src = "figures/cls_report_approval.png">
+                <p>Approval model separates low from high approval at rates better than chance.</p>
+            </div>
+        </div>
     </body>
