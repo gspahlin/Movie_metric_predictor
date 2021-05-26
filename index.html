@@ -86,6 +86,7 @@
             <br><br>
             <div class = 'text-center'>
                 <img src = "box_example.png">
+                <p>Box plots were used to judge potential features. English containing movies are slightly less approved of than movies without English.</p>
             </div>
 
             </div>
@@ -111,9 +112,26 @@
             a gini of 0 would perfectly separate the conditions, where a split with a gini value of 0.5 is useless and separates the population such that half the members of the resultant nodes
             are in one classification, and half are in the other. 
             </p>
+            <br>
+            <p>
+            Random forest is effectively the same thing as decision tree, but it has additional features that optimize the tree model. A random forest model constructs some number of 
+            decision tree models, and then uses them to form an optimized tree. 
+            </p>
+            <h3 class = 'text-center'>Implementing and Tuning the Models</h3>
+           
+            <p>
+            All the machine learning tools used in this work were imported from the Scikit-learn library of Python. In order to implement models, the data first needed to be processed.
+            A first processing step was to use the min/max scaler to scale the features, because year and duration had much different ranges than most of the other features. Two different
+            datasets were used in the implementation - the set used to predict is_liked contained 38 features, while the one used for is_outlier contained 40. Some features, such as 
+            genre_complexity showed promise for the engagement prediction, but not the approval prediction, which is the reason for the different number. I optimized these models by 
+            tuning the hyperparameters iteratively over a range that seemed reasonable. In particular, the tree depth parameter seemed important. Given an arbitrary tree depth, the 
+            models could almost completely sort the training data, but comparisons with the test data showed this to be overfitting. 
+            </p>
+            
             <div class = 'text-center'>
-            <img src =  >
-            <p></p>
+            <img src = "tree_fit_1.png" >
+            <p> Overly large decision trees overfit the training data badly.</p>
+            
         </div>
 
     </div>
