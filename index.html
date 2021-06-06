@@ -12,16 +12,23 @@
         <title>Machine Learning Project Page</title>
 
         <style> p {
-            margin: 50px;
+            margin: 20px;
+            text-indent: 50px;
         }              
         </style>
     </head>
+    
     <body>
+    <div class="row">
+        <div class="col-lg-10 offset-1">
         <div class = "jumbotron text-center">
             <h1>Predicting User Approval of and Engagement with Movies on IMDb With Machine Learning</h1>
         </div>
+        </div>
+    </div>
+        <div class="contaier">
         <div class = "row">
-            <div class = 'col-lg-12'>
+            <div class = "col-lg-10 offset-1">
             <h3 class = 'text-center'>Background</h3>
             <p>
                 This project started out as a group project in my bootcamp. The goal was to understand what factors drive user approval and engagement. 
@@ -44,7 +51,7 @@
             </div>
         </div>
         <div class = "row">
-            <div class = 'col-lg-12'>
+            <div class = "col-lg-10 offset-1">
             <h3 class = 'text-center'>But Can These Data Help Us Predict Engagement or Approval?</h3>
             <p>
             The initial analysis on the IMDb dataset was interesting, but falls somewhat short of the original goal - the idea was to identify the factors that
@@ -94,7 +101,7 @@
         </div>
         <br><br>
         <div class = "row">
-            <div class = 'col-lg-12'>
+            <div class = 'col-lg-10 offset-1'>
             <h3 class = 'text-center'>Modeling The Data With ML Methods</h3>
             <p>
             The first step toward modeling the data with machine learning is to decide what kind of algorythm to apply to the data. I'm skeptical of regression models
@@ -151,12 +158,12 @@
             </div>
         </div>
         <div class = "row">
-            <div class = 'col-md-6 text-center'>
+            <div class = 'col-lg-5 text-center offset-1'>
                 <h5 class = 'text-center'>Classification Report: Engagement</h5>
                 <img src = "figures/cls_report_engagement.png">
                 <p>Engagement model reliably identifies normal engagement, but struggles with high (outlier) engagement.</p>
             </div>
-            <div class = 'col-md-6 text-center'>
+            <div class = 'col-lg-5 text-center'>
                 <h5 class = 'text-center'>Classification Report: Approval</h5>
                 <img src = "figures/cls_report_approval.png">
                 <p>Approval model separates low from high approval at rates better than chance.</p>
@@ -164,7 +171,7 @@
         </div>
         <br>
         <div class = "row">
-            <div class = 'col-lg-12'>
+            <div class = 'col-lg-10 offset-1'>
                 <h3 class = 'text-center'>Discussion: Engagement</h3>
                 
                 <p>In my view the most interesting results came from the engagement model. The model was able to sort outliers from normal (e.g. very low) engagement 
@@ -213,6 +220,9 @@
                 Representative decision tree model with a depth of 8. Note the high gini values for the initial splits: this indicates these are low value.    
                 </p>
             </div>
+        <div class="row">
+            <div class="col-lg-10 offset-1" >
+
             <p>
                 The tree above shows the condition for splitting highest in the box, with the operator meanining less than or equal to. By number year is the first feature and
                 duration is the second feature so X[0] is year and X[1] is duration. You can see that while this model still gets about 70% accuracy the first splits are not very good.
@@ -220,9 +230,13 @@
                 would be so important. My hypothesis is that the main reason is that they are continuous variables and allow for a relatively even split, even if it isn't purifying the 
                 classes very much. 
             </p>
+            </div>
+
+        </div>
         
             <h3 class = 'text-center'>Conclusions and Limitations</h3>
-                
+        <div class="row"> 
+            <div class="col-lg-10 offset-1">  
             <p> 
           The most prudent conclusion I can derive from my work starts with acknowledging a limitation. The data that I am using to predict engagement and approval is relatively shallow and 
           doesn't really describe the content in those movies. That is, in a sense, the most interesting thing to me about this project. It's not apparant to me that a model should be able to 
@@ -232,4 +246,10 @@
           for more complicated models. In order to make better models of approval and engagement in movies, I believe better data is necessary. This could involve natural language processing or 
           financial data about the movies. 
             </p>
+            </div>
+        </div> 
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+     </div>
     </body>
