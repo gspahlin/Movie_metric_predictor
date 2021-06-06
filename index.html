@@ -85,7 +85,7 @@
             English is present in my model, but I did not do this for every language. I used a list of the 
             <a href = https://www.the-numbers.com/movies/production-countries/#tab=territory>top countries for movie production</a>, to aid in my decision making. 
             </p>
-            <br>
+            
             <p>
             In order to decide which of these features I should use, I made a lot of box plots to see if the medians were different for the films with a particular country or
             language, versus the ones without. 
@@ -111,7 +111,7 @@
             for total votes, is is_outlier, which gets a value of 1 if the total number of votes the movie has is greater than 1.5*IQR + the median number of votes 
             (i.e. roughly 2250 votes).  
             </p>
-            <br>
+            
             <p>
             I prioritiezed decision tree and random forest models, as these are relatively easily understood, and I know of ways to extract feature importances for them. Both 
             of these models work by separating populations based on variables. A decision tree uses features to make splits in the data, starting with an inital split (the root node)
@@ -119,7 +119,7 @@
             a gini of 0 would perfectly separate the conditions, where a split with a gini value of 0.5 is useless and separates the population such that half the members of the resultant nodes
             are in one classification, and half are in the other. 
             </p>
-            <br>
+            
             <p>
             Random forest is effectively the same thing as decision tree, but it has additional features that optimize the tree model. A random forest model constructs some number of 
             decision tree models, and then uses them to form an optimized tree. 
@@ -142,12 +142,12 @@
             </div>
             <br>
             <h3 class = 'text-center'>Results: Approval and Engagement are Somewhat Predictable</h3>
-            <br>
+            
             <p>
             The best results I was able to obtain for audience approval came from random forest models. The random forest model with a tree depth of 16 and the default
             100 estimator trees gave an accuracy of 0.709 on the testing set. 
             </p>
-            <br>
+            
             <p>
             The best results I was able to obtain for audience engagement were better, and came from a simple decision tree model. The random forest models gave only modest
             improvements in the audiece approval data, and also significantly complicated the model for audience engagement. The best decision tree for engagement had a tree depth of 8, and 
