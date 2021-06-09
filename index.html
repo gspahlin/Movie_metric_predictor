@@ -11,10 +11,14 @@
         
         <title>Machine Learning Project Page</title>
 
-        <style> p {
+        <style> 
+        p {
             margin: 20px;
             text-indent: 50px;
         }    
+        p.cap{
+            text-indent:0;
+        }
         h6 {text-indent: 70px;}         
         </style>
     </head>
@@ -52,7 +56,8 @@
             </p>
             <div class = 'text-center'>
             <img src = "figures/Metrics_over_time.png">
-            <p>Figures showing the distribution of average vote, and total votes through time.</p>
+            <br>
+            <p.cap>Figures showing the distribution of average vote, and total votes through time.</p.cap><br><br><br>
             </div>
             </div>
         </div>
@@ -82,7 +87,7 @@
             <br><br>
             <div class = 'text-center'>
             <img src = "figures/genre_encoding.png">
-            <p>Example of a loop used for feature encoding. This is the code used to accomplish the tasks mentioned above</p>
+            <br><br><p.cap>Example of a loop used for feature encoding. This is the code used to accomplish the tasks mentioned above</p.cap><br>
             </div>
             <br><br>
             <p>
@@ -99,7 +104,7 @@
             <br><br>
             <div class = 'text-center'>
                 <img src = "figures/box_example.png">
-                <p>Box plots were used to judge potential features. English language containing movies are slightly less approved of than movies without English.</p>
+                <br><br><p.cap>Box plots were used to judge potential features. English language containing movies are slightly less approved of than movies without English.</p><br>
             </div>
 
             </div>
@@ -143,7 +148,7 @@
             
             <div class = 'text-center'>
             <img src = "figures/tree_fit_1.png" >
-            <p> Overly large decision trees overfit the training data badly.</p>
+            <br><br><p.cap> Overly large decision trees overfit the training data badly.</p.cap><br><br><br>
             
             </div>
             <br>
@@ -191,9 +196,9 @@
                 </p>
                 <div class = 'text-center'>
                 <img src = "figures/fi_engagement.png">
-                <p>
+                <br><br><p.cap>
                  The engagement model made use of relatively few of the features.    
-                </p>
+                </p.cap><br><br><br>
                 </div>
                 <p>
                    The engagement model is relatively striking, because of its simplicity. Looking above, we find that the year, duration, presence of English language, and 
@@ -208,9 +213,9 @@
                 </p>
                 <div class = 'text-center'>
                 <img src = "figures/fi_approval.png">
-                <p>
+                <br><br><p.cap>
                  The approval model was a random forest, and slightly more complex.    
-                </p>
+                </p.cap><br><br><br>
                 </div>
                 <p> 
                 Our model for approval is somewhat more multifaceted than the one for engagement. It is much more surprising to me that the genre categories are marginal
@@ -222,9 +227,9 @@
 
                 <div class = 'text-center'>
                 <img src = "figures/example_tree.png">
-                <p>
+               <br> <p.cap>
                 Representative decision tree model with a depth of 8. Note the high gini values for the initial splits: this indicates these are low value.    
-                </p>
+                </p.cap><br><br><br>
             </div>
             </div>
         <div class="row">
