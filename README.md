@@ -1,4 +1,4 @@
-# Movie_score_predictor
+# Movie_metric_predictor
 Can an averge IMDb user score and number of votes be predicted by basic data using machine learning? 
 
 The goal of this project is to be able to predict the success of a movie using data that would be easily obtainable prior to its release. The idea for this project
